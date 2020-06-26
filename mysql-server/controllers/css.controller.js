@@ -8,3 +8,13 @@ exports.getAllCss = (req, res) => {
         dbActions.writeQuery(sql, req, res)
     }
 }
+
+exports.getAttributes = (req, res) => {
+    let sql = "select * from css_attributes"
+    dbActions.writeQuery(sql, req, res)
+}
+
+exports.getValues = (req, res) => {
+    let sql = "select * from css_values"
+    dbActions.writeQuery(sql, req, res)
+}

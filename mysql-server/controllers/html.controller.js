@@ -8,3 +8,13 @@ exports.getAllHtmlTags = (req, res) => {
         dbActions.writeQuery(sql, req, res)
     }
 }
+
+exports.getAttributes = (req, res) => {
+    let sql = "select * from html_tag_attributes"
+    dbActions.writeQuery(sql, req, res)
+}
+
+exports.getValues = (req, res) => {
+    let sql = "select * from html_tag_attributes_values"
+    dbActions.writeQuery(sql, req, res)
+}

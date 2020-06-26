@@ -7,9 +7,9 @@ module.exports = app => {
 
     router.get('/', css.getAllCss)
     // router.get('/:id', css.getCssById)
-    // router.get('/tags', css.getTags)
+    router.get('/attributes', css.getAttributes)
     // router.get('/tags/:id', css.getTagsById)
-    // router.get('/values', css.getvalues)
+    router.get('/values', css.getValues)
     // router.get('/values/:id', css.getvaluesById)
 
     app.use('/css', router)
