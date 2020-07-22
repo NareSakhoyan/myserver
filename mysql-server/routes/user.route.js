@@ -5,7 +5,7 @@ module.exports = app => {
     let router = express.Router()
 
 
-    router.get('/', user.getAll)
+    // router.get('/', user.getAll)
 
     app.use('/users', router)
 }

@@ -18,3 +18,15 @@ exports.getValues = (req, res) => {
     let sql = "select * from css_values"
     dbActions.writeQuery(sql, req, res)
 }
+
+exports.addAttrValue = (req, res) => {
+    const {valueId} = req.body.data
+    let sql = `insert into css_values values(null, '${valueId}', 1)`
+    dbActions.writeQuery(sql, req, res)
+}
+
+exports.addValue = (req, res) => {
+    const {valueId, attrId} = req.body.data
+    let sql = `insert into css values(null, ${valueId}, ${attrId})`
+    dbActions.writeQuery(sql, req, res)
+}

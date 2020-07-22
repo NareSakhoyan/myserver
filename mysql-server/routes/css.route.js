@@ -11,6 +11,8 @@ module.exports = app => {
     // router.get('/tags/:id', css.getTagsById)
     router.get('/values', css.getValues)
     // router.get('/values/:id', css.getvaluesById)
+    router.post('/attributes/value', css.addAttrValue)
+    router.post('/value', css.addValue)
 
     app.use('/css', router)
 }

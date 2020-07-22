@@ -1,10 +1,10 @@
 const dbActions = require('../connectDB')
 
-exports.getAllHtmlTags = (req, res) => {
+exports.getAllCss = (req, res) => {
     if (Object.keys(req.query).length){
         // this.findWithEmail(req, res)
     } else {
-        let sql = "select * from html_tags"
+        let sql = "select * from attributes"
         dbActions.writeQuery(sql, req, res)
     }
 }
@@ -15,12 +15,18 @@ exports.getAttributes = (req, res) => {
 }
 
 exports.getValues = (req, res) => {
-    let sql = "select * from html_tag_attributes_values"
+    let sql = "select * from html_tag_values"
+    dbActions.writeQuery(sql, req, res)
+}
+
+exports.addAttrValue = (req, res) => {
+    const {valueId} = req.body.data
+    let sql = `insert into html_tag_values values(null, '${valueId}')`
     dbActions.writeQuery(sql, req, res)
 }
 
 exports.addValue = (req, res) => {
-    const {tagName, tagValue, cssIds, attributesIds} = req.body.data
-    let sql = `insert into html_component values(null, '${tagName}', '${cssIds}', '${tagValue}', null, '${attributesIds}')`
+    const {valueId, attrId} = req.body.data
+    let sql = `insert into attributes values(null, ${valueId}, ${attrId})`
     dbActions.writeQuery(sql, req, res)
 }

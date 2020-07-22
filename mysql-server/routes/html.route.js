@@ -6,6 +6,7 @@ module.exports = app => {
 
 
     router.get('/', html.getAllHtmlTags)
+    router.post('/', html.addValue)
     // router.get('/:id', html
     // .getHtmlById)
     router.get('/attributes', html.getAttributes)
