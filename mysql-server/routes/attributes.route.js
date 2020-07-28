@@ -1,4 +1,4 @@
-const attribute = require('../controllers/attribute.controller');
+const attribute = require('../controllers/attributes.controller');
 const express = require('express')
 
 module.exports = app => {

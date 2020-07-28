@@ -22,11 +22,13 @@ exports.getValues = (req, res) => {
 exports.addAttrValue = (req, res) => {
     const {valueId} = req.body.data
     let sql = `insert into html_tag_values values(null, '${valueId}')`
+    console.log(sql);
     dbActions.writeQuery(sql, req, res)
 }
 
 exports.addValue = (req, res) => {
     const {valueId, attrId} = req.body.data
     let sql = `insert into attributes values(null, ${valueId}, ${attrId})`
+    console.log(sql);
     dbActions.writeQuery(sql, req, res)
 }

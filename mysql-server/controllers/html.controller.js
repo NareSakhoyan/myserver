@@ -20,7 +20,16 @@ exports.getValues = (req, res) => {
 }
 
 exports.addValue = (req, res) => {
-    const {tagName, tagValue, cssIds, attributesIds} = req.body.data
-    let sql = `insert into html_component values(null, '${tagName}', '${cssIds}', '${tagValue}', null, '${attributesIds}')`
+    let {tagName, tagValue, cssIds, attributesIds} = req.body.data
+    cssIds = JSON.stringify(cssIds)
+    attributesIds = JSON.stringify(attributesIds)
+    let sql = `insert into html_components values(null, ${tagName}, ${cssIds}, ${tagValue}, null, ${attributesIds})`
+    dbActions.writeQuery(sql, req, res)
+}
+
+exports.addTagValueValue = (req, res) => {
+    let {tagValue} = req.body.data
+    let sql = `insert into html_tag_values values(null, ${tagValue})`
+    console.log(sql);
     dbActions.writeQuery(sql, req, res)
 }
