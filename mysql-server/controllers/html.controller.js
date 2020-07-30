@@ -24,12 +24,13 @@ exports.addValue = (req, res) => {
     cssIds = JSON.stringify(cssIds)
     attributesIds = JSON.stringify(attributesIds)
     let sql = `insert into html_components values(null, ${tagName}, ${cssIds}, ${tagValue}, null, ${attributesIds})`
+    console.log(sql);
     dbActions.writeQuery(sql, req, res)
 }
 
 exports.addTagValueValue = (req, res) => {
     let {tagValue} = req.body.data
-    let sql = `insert into html_tag_values values(null, ${tagValue})`
+    let sql = `insert into html_tag_values values(null, '${tagValue}')`
     console.log(sql);
     dbActions.writeQuery(sql, req, res)
 }
